@@ -123,5 +123,36 @@ console.log(sun.sub())
 console.log(guts.sup())
 
 
+////////////// Arrays ///////////////
 
+console.log("Every function for array")
+let arr1 = [1,2,3,4,5];
+let arr2 = ['Ali', 'Jamil', 'Ahmad']
+console.log(arr1.concat(arr2));
+console.log(arr1.every(arr));
+
+function arr(val){
+    if(val % 1 == 0){
+        return true
+        
+    }
+}
+
+console.log(arr2.indexOf('i'))
+console.log(arr1.join(arr2));
+
+console.log(arr1.filter(fill));
+function fill(val){
+    return val > 2
+}
+
+let nums = [20,24,26,28,37,11,42,39,17];
+console.log(nums.forEach(fills));
+
+function fills(val){
+    if(val % 2 == 0){
+        console.log(val)
+        // return val
+    }
+}
 
