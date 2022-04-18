@@ -106,6 +106,21 @@ console.log(sun.toLocaleLowerCase());
 console.log(sun.toLowerCase());
 console.log(guts.toLocaleUpperCase());
 console.log(guts.toUpperCase());
+console.log("Returning strings in form of tags as...")
+console.log(guts.anchor("hello"))
+console.log(sun.big());
+console.log(sun.blink())
+console.log(guts.bold())
+console.log(guts.fixed())
+console.log(sun.fontcolor('red'))
+console.log(sun.fontsize(5))
+console.log(sun.italics(3))
+let url = "http://localhost:8080";
+console.log(guts.link(url))
+console.log(sun.small())
+console.log(sun.strike())
+console.log(sun.sub())
+console.log(guts.sup())
 
 
 
