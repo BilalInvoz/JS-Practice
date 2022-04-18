@@ -41,5 +41,72 @@ function addPrice(amount){
     }
 }
 var reading = new novel("Bid day", "John Smith");
+novel.prototype.price = null;
 reading.price("$100");
 console.log(reading);
+
+
+
+
+///////////// Numbers Methods /////////////
+
+console.log("Exponential form...")
+
+let num = 20.254;
+let val = num.toExponential(2);
+console.log(val)
+
+console.log("To Fixed form...")
+
+val = num.toFixed(2)
+console.log(val)
+
+console.log("To Local String form...")
+
+val = num.toLocaleString()
+console.log(val)
+
+console.log("To Precision form...");
+val = num.toPrecision()
+console.log(val)
+
+console.log("To String form...");
+val = num.toString()
+console.log(val)
+
+console.log("Value of form...");
+val = num.valueOf()
+console.log(val)
+
+var game = new Boolean(false);
+console.log(game)
+
+
+///////////////// Strings /////////////////
+
+console.log("Char at: ");
+let guts = "Good Thing"
+console.log(guts.charAt(5));
+console.log(guts.charCodeAt(5));
+
+let sun = "Shine Best";
+let join = guts.concat(sun);
+console.log(join);
+
+console.log(guts.indexOf('Thing')); ///// index for whole word
+console.log(guts.indexOf('d')); ////////// index for single alphabet
+console.log(sun.lastIndexOf('s')) //////// returns index no of character
+console.log(guts.localeCompare("Good Thing")) ////// Compares with original string
+console.log(guts.match(sun))//// returns an array if true otherwise false
+console.log("New word formed is: " + sun.replace('Shine', 'All')) ////// For replacing content of your own choice
+console.log(sun.slice(1, -4))
+console.log(guts.split("", 3)) ////// Will split into separate chars or till index of choice
+console.log(sun.substring(1,8));
+console.log(sun.toLocaleLowerCase());
+console.log(sun.toLowerCase());
+console.log(guts.toLocaleUpperCase());
+console.log(guts.toUpperCase());
+
+
+
+
