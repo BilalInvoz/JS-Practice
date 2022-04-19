@@ -129,7 +129,8 @@ console.log("Every function for array")
 let arr1 = [1,2,3,4,5];
 let arr2 = ['Ali', 'Jamil', 'Ahmad']
 console.log(arr1.concat(arr2));
-console.log(arr1.every(arr));
+console.log("Every method...")
+console.log(arr1.every(arr)); ///////// Every to check if condition is true on all elements
 
 function arr(val){
     if(val % 1 == 0){
@@ -141,6 +142,7 @@ function arr(val){
 console.log(arr2.indexOf('i'))
 console.log(arr1.join(arr2));
 
+console.log("Filter method...")
 console.log(arr1.filter(fill));
 function fill(val){
     return val > 2
@@ -155,4 +157,83 @@ function fills(val){
         // return val
     }
 }
+
+
+console.log("Map Method...");
+let numarr = [1,2,3,4,5];
+let numarr2 = numarr.map(mul);
+console.log(numarr2)
+
+console.log("Reduce method...")
+// let ars = ['ali', 'amad', 'jamil']
+let numar3 = numarr.reduce(myFun);
+console.log(numar3)
+
+function mul(val){
+    return val * 4;
+}
+
+function myFun(sum, val){
+    return sum + val;
+}
+
+console.log("Pop method...");
+console.log(numarr.pop())
+console.log(numarr)
+console.log("Push method...")
+console.log(numarr.push(20))
+console.log(numarr)
+console.log("Some method...");
+function myFunction(val){
+    return val > 2;
+    // return val > 30;
+
+}
+console.log(numarr.some(myFunction))
+console.log(numarr)
+console.log("Find Method...")
+console.log(numarr.find(myFunction)); ////// Returns first element of an array which satisifes condition
+
+console.log("Reverse Method...");
+console.log(numarr.reverse())
+console.log(numarr.sort())
+console.log(numarr.splice(1,3))
+console.log("Shift Method...")
+let arrd = [2,5,8,7,9]
+console.log(arrd.shift())
+console.log(arrd)
+console.log("Unshift method...")
+console.log(arrd.unshift(3))
+console.log(arrd)
+
+//////////////// Dates ////////////////////
+console.log("Dates")
+let day = new Date();
+console.log(day)
+console.log(day.getFullYear())
+console.log(day.setFullYear(2025))
+console.log(day.getFullYear())
+console.log(day.getDate())
+console.log(day.getDay())
+console.log(day.getHours())
+console.log(day.setHours(20))
+console.log(day.getHours())
+console.log(day.getMonth())
+console.log(day.setMonth(4))
+console.log(day.getMonth())
+console.log(day.setTime(152102))
+console.log(day.getTime())
+console.log(day.getMinutes())
+console.log(day.getSeconds())
+console.log(day.getMilliseconds())
+console.log(day.getTimezoneOffset())
+console.log(day.getUTCHours())
+console.log(day.getUTCDate())
+
+
+
+
+
+
+
 
