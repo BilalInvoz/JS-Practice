@@ -108,7 +108,32 @@ console.log(expp.lastIndex)
 
 //////// Brackets ///////
 let text = 'He was eating cake in the cafe.';
-let patt = 'ca[kf]e/g'
-console.log(patt.match(text))
+// let patt = /d/g
+let patt = /[H]e/g
+// let patt = /ca[kf]e/g
+console.log(text.match(patt))
+
+/////////// Quantifiers ///////////
+let txt = "Heloooo, World! of JS cccssss."
+let pat = /[o+c+]/g
+console.log(txt.match(pat))
+let pats = /[lo*c*s*]/g
+console.log(txt.match(pats))
+let patn = /cs?/g
+console.log(txt.match(patn))
+let patd = /s{4}/g
+console.log(txt.match(patd))
+let patp = /cs{3,4}/g
+console.log(txt.match(patp))
+let patc = /c{3,}/g
+console.log(txt.match(patc))
+let patq = /.$/g
+console.log(txt.match(patq))
+let pate = /^H/g
+console.log(txt.match(pate))
+let patl = /s(?=all)/g
+console.log(txt.match(patl))
+let patm = /s(?!all)/g
+console.log(txt.match(patm))
 
 
