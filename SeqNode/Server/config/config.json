@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Bilalshahid786",
+    "database": "pglinux",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "Bilalshahid786",
+    "database": "pglinux",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "Bilalshahid786",
+    "database": "pglinux",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
