@@ -17,7 +17,6 @@ exports.findAll = async (req, res) => {
   User.findAll({  })
     .then(data => {
       res.send(data);
-      console.log(firstName, lastName, email)
       console.log("Got all data.")
     })
     .catch(err => {
@@ -32,19 +31,21 @@ exports.findAll = async (req, res) => {
 exports.create = (req, res) => {
 
     console.log("Creating new entry...");
+
+    ///// Validation //////
     if (!(req.body.firstName )) {
           res.status(400).send({
               message: "Content can not be empty!"
             });
             return;
           }
-          // Create a Tutorial
+          // Create a User
         const tutorial = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email
         };
-        // Save Tutorial in the database
+        // Save User in the database
         User.create(tutorial)
         .then(data => {
             res.send(data);
