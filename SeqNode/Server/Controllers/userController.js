@@ -17,6 +17,7 @@ exports.findAll = async (req, res) => {
   User.findAll({  })
     .then(data => {
       res.send(data);
+      console.log(firstName, lastName, email)
       console.log("Got all data.")
     })
     .catch(err => {
@@ -36,8 +37,8 @@ exports.create = (req, res) => {
               message: "Content can not be empty!"
             });
             return;
-        }
-        // Create a Tutorial
+          }
+          // Create a Tutorial
         const tutorial = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -45,9 +46,10 @@ exports.create = (req, res) => {
         };
         // Save Tutorial in the database
         User.create(tutorial)
-        .then(tutorial => {
-            res.send(tutorial);
+        .then(data => {
+            res.send(data);
             console.log(tutorial)
+            console.log("User created successfully...")
         })
         .catch(err => {
             res.status(500).send({
@@ -61,10 +63,10 @@ exports.create = (req, res) => {
     exports.update = (req, res) => {
         const id = req.params.id;
     User.update(req.body,{
-      where: {id:id}
+      where: { id : id }
     })
     .then(data => {
-      if(id != id){
+      if(data == true){
         console.log(data)
         console.log("User updated");
         return res.send("Id updated successfully...");
