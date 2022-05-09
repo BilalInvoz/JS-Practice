@@ -60,7 +60,7 @@ require('../index');
 
   router.put('/update/:id', async (req, res) => {
     // res.json({ })
-    let id = req.params.id;
+    const id = req.params.id;
     users.update(req.body,{
       where: {id:id}
     })
@@ -86,7 +86,7 @@ require('../index');
     // res.json({ })
     let id = req.params.id;
     users.destroy({
-      where: {id:id}
+      where: { id : id }
     })
     .then(data => {
       if(data){
