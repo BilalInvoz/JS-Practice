@@ -13,10 +13,11 @@ exports.findAll = async (req, res) => {
     const lastName = req.query.lastName;
     const email = req.query.email;
 
-  var condition = (firstName, lastName, email) ? { firstName, lastName, email: { [Op.iLike]: `%${firstName, lastName, email}%` } } : null;
-  User.findAll({ where: condition })
+//   var condition = (firstName, lastName, email) ? { firstName, lastName, email: { [Op.iLike]: `%${firstName, lastName, email}%` } } : null;
+  User.findAll({  })
     .then(data => {
       res.send(data);
+      console.log("Got all data.")
     })
     .catch(err => {
       res.status(500).send({
