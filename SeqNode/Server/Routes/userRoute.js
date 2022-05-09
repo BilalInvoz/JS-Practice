@@ -15,6 +15,9 @@ require('../index');
       // };
       // })
       
+      
+      //// For creating a User... ////
+      
       router.post('/create', async (req, res) => {
         console.log("Creating new entry...");
         if (!(req.body.firstName )) {
@@ -37,16 +40,74 @@ require('../index');
         .catch(err => {
           res.status(500).send({
             message:
-            err.message || "Some error occurred while creating the Tutorial."
+            err.message || "Some error occurred while creating the User."
           });
         });
-        // return res.send();
       })
+
+
+      //// For Fetching all users... ////
+
     router.get('/', async (req, res) => {
       // res.json({ })
       let gets = await users.findAll();
       console.log("Got all data.")
       return res.json(gets)
   })
+
+
+  //// For Updating a user.... ////
+
+  router.put('/update/:id', async (req, res) => {
+    // res.json({ })
+    let id = req.params.id;
+    users.update(req.body,{
+      where: {id:id}
+    })
+    .then(data => {
+      if(id){
+        console.log(data)
+        return res.send("Id updated successfully...");
+      }
+      else{
+        res.status(404).send("Such an id doesn't exist...")
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error deleting Tutorial with id=" + id
+      });
+    
+    })
+})
+       
+   //// For Deleting a User... ////
+   router.delete('/delete/:id', async (req, res) => {
+    // res.json({ })
+    let id = req.params.id;
+    users.destroy({
+      where: {id:id}
+    })
+    .then(data => {
+      if(data){
+        console.log(data)
+        return res.send("Id deleted successfully...");
+      }
+      else{
+        res.status(404).send("Such an id doesn't exist...")
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error deleting user with id=" + id
+      });
+    
+    })
+})
+
+
+
+
+
 
 module.exports = router
