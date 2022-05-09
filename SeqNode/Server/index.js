@@ -31,6 +31,7 @@ const sequelize = new Sequelize('pglinux', 'postgres', 'Bilalshahid786', {
     app.use(express.json());
     app.use(cors());
 
+    require('./Controllers/userController')
     let runt = require('./Routes/userRoute');
     app.use('/user', runt);
 
