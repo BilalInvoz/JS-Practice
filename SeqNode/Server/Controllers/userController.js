@@ -45,9 +45,9 @@ exports.create = (req, res) => {
         };
         // Save Tutorial in the database
         User.create(tutorial)
-        .then(data => {
-            res.send(data);
-            console.log("User created successfully...")
+        .then(tutorial => {
+            res.send(tutorial);
+            console.log(tutorial)
         })
         .catch(err => {
             res.status(500).send({
@@ -64,7 +64,7 @@ exports.create = (req, res) => {
       where: {id:id}
     })
     .then(data => {
-      if(id){
+      if(id != id){
         console.log(data)
         console.log("User updated");
         return res.send("Id updated successfully...");
