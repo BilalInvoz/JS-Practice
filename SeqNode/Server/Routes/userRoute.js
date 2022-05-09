@@ -36,6 +36,7 @@ require('../index');
         users.create(tutorial)
         .then(data => {
           res.send(data);
+          console.log("User created successfully...")
         })
         .catch(err => {
           res.status(500).send({
@@ -67,6 +68,7 @@ require('../index');
     .then(data => {
       if(id){
         console.log(data)
+        console.log("User updated");
         return res.send("Id updated successfully...");
       }
       else{
@@ -75,7 +77,7 @@ require('../index');
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error deleting Tutorial with id=" + id
+        message: "Error Updating User with id=" + id
       });
     
     })
@@ -91,6 +93,7 @@ require('../index');
     .then(data => {
       if(data){
         console.log(data)
+        console.log("User Deleted")
         return res.send("Id deleted successfully...");
       }
       else{
@@ -104,10 +107,5 @@ require('../index');
     
     })
 })
-
-
-
-
-
 
 module.exports = router

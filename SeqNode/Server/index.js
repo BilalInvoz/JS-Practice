@@ -49,4 +49,4 @@ const sequelize = new Sequelize('pglinux', 'postgres', 'Bilalshahid786', {
  ////// User Route 1:  //////////
 //  app.use('/user', usrt);
 
-module.exports = app;
+// module.exports = app;
