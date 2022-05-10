@@ -1,8 +1,33 @@
 const db = require('../models');
 const User= db.users;
 require('../models/index')
+const EventEmitter = require('node:events');
 
+class userController extends EventEmitter{}
 
+////// Applied on creation:
+const myEmitter = new userController();
+myEmitter.on('event', ()=>{
+  console.log("You have added yourself in database officially. ")
+})
+
+////// Applied on fetching:
+const urEmitter = new userController();
+urEmitter.on('event', () => {
+  console.log("All data is fetched from database.")
+})
+
+///// Applied for Updation: 
+const upEmitter = new userController();
+upEmitter.on('event', () => {
+  console.log("User with specific ID has been updated")
+})
+
+///// Applied for Deletion: 
+const delEmitter = new userController();
+delEmitter.on('event', () => {
+  console.log("User with specific ID has been deleted. ")
+})
 
 //// For Getting All users... ////
 exports.findAll = async (req, res) => {
@@ -18,6 +43,10 @@ exports.findAll = async (req, res) => {
     .then(data => {
       res.send(data);
       console.log("Got all data.")
+
+      /////// Emitting an event //////////
+      urEmitter.emit('event');
+      
     })
     .catch(err => {
       res.status(500).send({
@@ -51,6 +80,9 @@ exports.create = (req, res) => {
             res.send(data);
             console.log(tutorial)
             console.log("User created successfully...")
+
+            /////// Emitting an event //////////
+            myEmitter.emit('event')
         })
         .catch(err => {
             res.status(500).send({
@@ -62,7 +94,7 @@ exports.create = (req, res) => {
 
     //// For Updating a User... ////
     exports.update = (req, res) => {
-        const id = req.params.id;
+    const id = req.params.id;
     User.update(req.body,{
       where: { id : id }
     })
@@ -70,7 +102,10 @@ exports.create = (req, res) => {
       if(data == true){
         console.log(data)
         console.log("User updated");
-        return res.send("Id updated successfully...");
+        res.send("Id updated successfully...");
+        
+        /////// Emitting an event //////////
+        upEmitter.emit('event');
       }
       else{
         res.status(404).send("Such an id doesn't exist...")
@@ -94,10 +129,14 @@ exports.destroy = (req, res) => {
       if(data){
         console.log(data)
         console.log("User Deleted")
-        return res.send("Id deleted successfully...");
+        res.send("Id deleted successfully...");
+        
+        /////// Emitting an event //////////
+        delEmitter.emit('event')
       }
       else{
         res.status(404).send("Such an id doesn't exist...")
+        console.log(data)
       }
     })
     .catch(err => {
