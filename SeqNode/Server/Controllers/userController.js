@@ -1,6 +1,12 @@
 const db = require('../models');
 const User= db.users;
 require('../models/index')
+
+///////// For Cron jons on Get All operation...
+const cron = require('node-cron');
+
+
+
 const EventEmitter = require('node:events');
 
 class userController extends EventEmitter{}
@@ -46,6 +52,17 @@ exports.findAll = async (req, res) => {
 
       /////// Emitting an event //////////
       urEmitter.emit('event');
+
+      /////// Cron jobs Applied:
+      let count = 0;
+      let task = cron.schedule('* * * * * *', () =>  {
+        count++;
+        console.log(`${count}sec passed`);
+      }, {
+        scheduled: false
+      });
+      
+      task.start();
       
     })
     .catch(err => {
