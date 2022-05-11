@@ -57,7 +57,7 @@ exports.findAll = async (req, res) => {
       let count = 0;
       let task = cron.schedule('* * * * * *', () =>  {
         count++;
-        console.log(`${count}sec passed`);
+        console.log(`${count}seconds passed.`);
       }, {
         scheduled: false
       });
